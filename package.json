@@ -10,9 +10,7 @@
     "test:e2e": "vue-cli-service test:e2e"
   },
   "dependencies": {
-    "vue": "^2.5.16"
-  },
-  "devDependencies": {
+    "vue": "^2.5.16",
     "@vue/cli-plugin-babel": "^3.0.0-rc.10",
     "@vue/cli-plugin-e2e-cypress": "^3.0.0-rc.10",
     "@vue/cli-plugin-eslint": "^3.0.0-rc.10",
