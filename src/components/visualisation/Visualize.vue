@@ -7,8 +7,8 @@
 
 <script>
 export default {
-  name: "Visualize"
-};
+  name: 'Visualize'
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

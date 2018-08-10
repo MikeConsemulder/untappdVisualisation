@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import UntappdLoginButton from "./login/UntappdLoginButton";
+import UntappdLoginButton from './login/UntappdLoginButton'
 export default {
   name: 'Welcome',
   components: {
