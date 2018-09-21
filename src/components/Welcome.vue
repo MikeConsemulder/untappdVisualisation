@@ -1,19 +1,20 @@
 <template>
-  <div class="hello">
+  <div class="Welcome">
     <h1>Untappd Visualisation</h1>
+    <UntappdLoginButton/>
   </div>
 </template>
 
 <script>
+import UntappdLoginButton from './login/UntappdLoginButton'
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  name: 'Welcome',
+  components: {
+    UntappdLoginButton
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 h3 {
   margin: 40px 0 0;
