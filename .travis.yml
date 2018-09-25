@@ -5,3 +5,8 @@ install:
   - npm install
 script:
   - npm run build
+deploy:
+  skip_cleanup: true
+  provider: surge
+  project: ./dist/
+  domain: onbijtkoek.surge.sh  
