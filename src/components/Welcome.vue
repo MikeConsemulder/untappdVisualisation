@@ -1,6 +1,6 @@
 <template>
   <div class="Welcome">
-    <h1>Untappd Visualisation</h1>
+    <h1>Untappd Visualisation...</h1>
     <UntappdLoginButton/>
   </div>
 </template>
