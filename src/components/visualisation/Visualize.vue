@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { Base64 } from 'js-base64';
+
 export default {
   name: "Visualize",
   data() {
@@ -46,27 +48,31 @@ export default {
       this.requestAToken();
     },
     requestAToken() {
-      //
 
-      let url = `https://untappd-authenticator.herokuapp.com/api/authenticateUser?code=${
-        this.code
-      }`;
+      console.log('do the request!!');
+      let url = `https://untappd-userinformation-stg.herokuapp.com/api/authenticateUser`;
       let username = "onbijtkoek";
       let password = "JeMoederAanDePoeder1992";
 
       let headers = new Headers();
 
-      headers.set(
+      headers.append('Content-Type', 'application/json');
+      headers.append(
         "Authorization",
-        "Basic b25iaWp0a29lazpKZU1vZWRlckFhbkRlUG9lZGVyMTk5Mg=="
+        "Basic" + Base64.encode(username + ":" + password),
       );
 
       fetch(url, {
         method: "GET",
         headers: headers
-      }).then(response => {
-        console.log("yoyo", response);
-      });
+      })
+        .then(response => response.json())
+        .then(json => console.log(json));
+      //.done();
+
+      function parseJSON(response) {
+        return response.json();
+      }
     }
   }
 };
