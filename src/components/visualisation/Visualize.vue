@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { Base64 } from "js-base64";
+
 export default {
   name: "Visualize",
   data() {
@@ -46,27 +48,35 @@ export default {
       this.requestAToken();
     },
     requestAToken() {
-      //
-
-      let url = `https://untappd-authenticator.herokuapp.com/api/authenticateUser?code=${
-        this.code
-      }`;
+      console.log("do the request!!");
+      let url = `https://untappd-userinformation-stg.herokuapp.com/api/authenticateUser?code=1`;
       let username = "onbijtkoek";
       let password = "JeMoederAanDePoeder1992";
 
-      let headers = new Headers();
-
-      headers.set(
-        "Authorization",
-        "Basic b25iaWp0a29lazpKZU1vZWRlckFhbkRlUG9lZGVyMTk5Mg=="
-      );
-
       fetch(url, {
         method: "GET",
-        headers: headers
-      }).then(response => {
-        console.log("yoyo", response);
-      });
+        headers: new Headers({
+          Authorization: "Basic " + btoa(username + ":" + password),
+          "Content-Type": "application/json",
+          code: this.code
+        })
+      })
+        .then(response => response.json())
+        .then(json => {
+          this.saveTokenFromMessage(json);
+        })
+        .catch(error => {
+          console.log("the error", error);
+        });
+    },
+    saveTokenFromMessage(jsonMessage) {
+      if (typeof jsonMessage.token === "undefined") {
+        return;
+      }
+
+      this.userToken = jsonMessage.token;
+
+      console.log('the token = ', this.userToken);
     }
   }
 };
@@ -74,4 +84,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-</style>
+</style> 
