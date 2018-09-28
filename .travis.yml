@@ -14,3 +14,5 @@ deploy:
   bucket: untappdbundle
   skip_cleanup: true
   local_dir: dist
+  on:
+      branch: develop
