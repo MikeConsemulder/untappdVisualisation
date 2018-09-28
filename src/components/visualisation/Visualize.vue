@@ -11,7 +11,7 @@
 export default {
   name: "Visualize",
   data() {
-    return {
+    return { 
       code: null,
       userToken: null,
       userBeers: null,
