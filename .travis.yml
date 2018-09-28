@@ -1,12 +1,20 @@
 language: node_js
 node_js:
-  - 'stable'
+- stable
 install:
-  - npm install
+- npm install
 script:
-  - npm run build
+- npm run build
 deploy:
+  provider: s3
+  access_key_id:
+    secure: kL6CBI3gOwe7EqnG3uD17SomCRwSwGCdyjNetJ2IkMb+FrRINyxTnTsfjduRPu39RhTaoCQo2upbVGwl2Z4ptmg8x47aQblSQTDR5mGxtOSuECboVpX9pIH2LmWXki1LumtNnLmQTUmQUTHVIXzGcGbqY770oXeTbFxjOpeZL9VE3Hivx4mC+zaLkrn9oYvpUh/ZfVGW74VUU2FH1kvuk9ccQvmPFT2eixfL/1X8l+fUjd50kzP6GhmHJiN8ZAXcW2XrbS/j6dG6wWYl2K6MsL3uBPWFbLPIKa7hposUXm+E6WEPxc82HU5dhHahadPReuo+rwWWZ6h+LgfDtvoraFuXcA1p0Gx8sqn5Shy9sdS5nmiqtojiygp1HXMNPf/Ojordm+7h6vHKuEjSNu3Xc6GG47TanaP8bTkNGQJKetrNsX8yW4gCw7cTcHCvFmlRBASLbzz7taKUuXwS11pV5HThS4ej5G2oVz/utj4AFN75GcyUjke+eg7VD2tYNfMUJ1QlcCYe+UREi5Pgg63vV3cL31y3eYUn/JfN4EPHek67oeG5yzFk4Q7iq+6gWZT1z1VBvLtc/1yBULjdybN5pbL6KDJG59XfO35m9NF64tPXMC4MnFfzian5gUIaWdCLYEsaDrkoWNEaV3ZinX60nObHYqzocrnV/SmnpAclJqU=
+  secret_access_key:
+    secure: EheXRuW6lhxfNKhbu09jnBhJlego7EJnhECsQ6d1+JB6+dMX9/CzpL+bemdZVpVAMaxJD9I1r1AVgCGRPwDXIs+35ipkGP58zGkaVmdHW/LbmxX7PTPQ//04k9EAHM+GnaJhc+rSJf/0OTymeVBJHDOyhqG0cge/8QpEWyxZH6GJQ3ik0olR34YPHqgDtv0DoBWuqLlkTZSTgcbVd5w8MqLtUrwdymElt735JLTIuo8KYiBT0KnhHk6CJ/iRVSRnK6v0yyjGfagZA7oMsDBFYviq1frXnplJcp/sw5o0A+qImCqamlobOUO57eHWdtxeULRjLx8Vdy0JRSRaU8nGXWtEGUmLe9h4ICf5z8iAWLkX9I/SyHHqgnlRV2CQ3Y6RNQuXCg8jE3zI5bY8J5bj1NQs+7FKlBzi8O7P4gZv1KS1CA+yHnNhAoWBcbPiu9Xm+Qxcd8shMsx/lRzRQSBG0IRXhIMlM+S/5LLwoIc44W857y2s4N/mFPbagx9zhNBy1vRKUJULaF8yipJLFdOMP3SG9jR+ZW7d9DHgRAdkjt+vePeDK6PvHC6FgATE/VIYmXkCpJ6aO1HtoDfNQqsAeg03jT2B62kqRO+gW7kaUaTKCbg3Hu7Q5Kzwe71IeltpxC7l5p5eOhXa6sap3sPcQ/MX/tfCe9sALWbG2AENPDk=
+  bucket: untappdbundle
   skip_cleanup: true
-  provider: surge
-  project: ./dist/
-  domain: onbijtkoek.surge.sh 
+  local_dir: dist
+  on:
+    repo: untappdVisualisation
+    tags: true
+    all_branches: true
