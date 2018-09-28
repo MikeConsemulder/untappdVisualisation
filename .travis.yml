@@ -15,4 +15,4 @@ deploy:
   skip_cleanup: true
   local_dir: dist
   on:
-      branch: develop
+    tags: true
